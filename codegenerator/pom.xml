@@ -36,7 +36,7 @@
         <xmlgraphics.version>1.7</xmlgraphics.version>
         <geom2d.version>0.11.1</geom2d.version>
         <aliyun.sdk.oss.version>2.4.0</aliyun.sdk.oss.version>
-        <commons.fileupload.version>1.3.1</commons.fileupload.version>
+        <commons.fileupload.version>1.3.3</commons.fileupload.version>
         <redisson.version>3.10.0</redisson.version>
         <swagger.version>2.9.2</swagger.version>
         <yunpian.version>1.2.7</yunpian.version>
