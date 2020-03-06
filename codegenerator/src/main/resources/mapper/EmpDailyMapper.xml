@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dsx.codegenerator.dao.EmpDailyMapper">
+  <resultMap id="BaseResultMap" type="cn.dsx.codegenerator.pojo.EmpDaily">
+    <id column="emp_daily_id" jdbcType="INTEGER" property="empDailyId" />
+    <result column="emp_id" jdbcType="INTEGER" property="empId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="dailyTime" jdbcType="VARCHAR" property="dailytime" />
+    <result column="dailyScores" jdbcType="DECIMAL" property="dailyscores" />
+    <result column="auditTime" jdbcType="TIMESTAMP" property="audittime" />
+    <result column="auditHrId" jdbcType="INTEGER" property="audithrid" />
+    <result column="dailyContent" jdbcType="VARCHAR" property="dailycontent" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    emp_daily_id, emp_id, createTime, dailyTime, dailyScores, auditTime, auditHrId, dailyContent, 
+    flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from emp_daily
+    where emp_daily_id = #{empDailyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from emp_daily
+    where emp_daily_id = #{empDailyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.dsx.codegenerator.pojo.EmpDaily">
+    insert into emp_daily (emp_daily_id, emp_id, createTime, 
+      dailyTime, dailyScores, auditTime, 
+      auditHrId, dailyContent, flag
+      )
+    values (#{empDailyId,jdbcType=INTEGER}, #{empId,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{dailytime,jdbcType=VARCHAR}, #{dailyscores,jdbcType=DECIMAL}, #{audittime,jdbcType=TIMESTAMP}, 
+      #{audithrid,jdbcType=INTEGER}, #{dailycontent,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.dsx.codegenerator.pojo.EmpDaily">
+    insert into emp_daily
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empDailyId != null">
+        emp_daily_id,
+      </if>
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="dailytime != null">
+        dailyTime,
+      </if>
+      <if test="dailyscores != null">
+        dailyScores,
+      </if>
+      <if test="audittime != null">
+        auditTime,
+      </if>
+      <if test="audithrid != null">
+        auditHrId,
+      </if>
+      <if test="dailycontent != null">
+        dailyContent,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empDailyId != null">
+        #{empDailyId,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailytime != null">
+        #{dailytime,jdbcType=VARCHAR},
+      </if>
+      <if test="dailyscores != null">
+        #{dailyscores,jdbcType=DECIMAL},
+      </if>
+      <if test="audittime != null">
+        #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="audithrid != null">
+        #{audithrid,jdbcType=INTEGER},
+      </if>
+      <if test="dailycontent != null">
+        #{dailycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dsx.codegenerator.pojo.EmpDaily">
+    update emp_daily
+    <set>
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailytime != null">
+        dailyTime = #{dailytime,jdbcType=VARCHAR},
+      </if>
+      <if test="dailyscores != null">
+        dailyScores = #{dailyscores,jdbcType=DECIMAL},
+      </if>
+      <if test="audittime != null">
+        auditTime = #{audittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="audithrid != null">
+        auditHrId = #{audithrid,jdbcType=INTEGER},
+      </if>
+      <if test="dailycontent != null">
+        dailyContent = #{dailycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where emp_daily_id = #{empDailyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dsx.codegenerator.pojo.EmpDaily">
+    update emp_daily
+    set emp_id = #{empId,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      dailyTime = #{dailytime,jdbcType=VARCHAR},
+      dailyScores = #{dailyscores,jdbcType=DECIMAL},
+      auditTime = #{audittime,jdbcType=TIMESTAMP},
+      auditHrId = #{audithrid,jdbcType=INTEGER},
+      dailyContent = #{dailycontent,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=INTEGER}
+    where emp_daily_id = #{empDailyId,jdbcType=INTEGER}
+  </update>
+</mapper>
