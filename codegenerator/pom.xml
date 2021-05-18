@@ -319,7 +319,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.10</version>
+            <version>1.4.17</version>
         </dependency>
 
         <!--阿里短信服务相关jar包-->
